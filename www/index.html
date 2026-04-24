@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Crypto Tracker Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="search-container">
+            <i class='bx bx-search'></i>
+            <input type="text" id="searchInput" placeholder="Search coin...">
+            <button id="settingsBtn"><i class='bx bx-cog'></i></button>
+        </div>
+        
+        <div class="menu-tabs">
+            <button class="tab-btn active" id="tabAll">All</button>
+            <button class="tab-btn" id="tabFav">Favorites</button>
+        </div>
+    </header>
+
+    <main class="crypto-container" id="cryptoList">
+        </main>
+
+        <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button id="closeSettings"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="settings-body">
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class='bx bx-moon'></i>
+                        <span>Dark Mode</span>
+                    </div>
+                    <label class="custom-toggle">
+                        <input type="checkbox" id="themeToggleCheckbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class='bx bx-grid-alt'></i>
+                        <span>Widget on Screen</span>
+                    </div>
+                    <label class="custom-toggle">
+                        <input type="checkbox" id="widgetToggleCheckbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="settings-divider"></div>
+
+                <div class="auth-section">
+                    <button class="google-btn" id="googleLoginBtn">
+                        <i class='bx bxl-google'></i> Continue with Google
+                    </button>
+                </div>
+
+                <div class="settings-divider"></div>
+
+                <div class="rate-section" id="rateAppBtn">
+                    <div class="setting-label">
+                        <i class='bx bx-star'></i>
+                        <span>Rate on Play Store</span>
+                    </div>
+                    <div class="stars">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                </div>
+
+                <div class="app-version">
+                    Version 1.0.0 (Premium)
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="widgetView" class="widget-mode hidden">
+        <div class="widget-content" id="widgetList">
+            </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+/* --- CSS Variables for Theme Switching --- */
+:root {
+    --bg-color: #12161c;
+    --surface-color: #1e2329;
+    --text-primary: #eaecef;
+    --text-secondary: #848e9c;
+    --accent-color: #fcd535; /* Binance Yellow */
+    --green-up: #0ecb81;
+    --red-down: #f6465d;
+    --border-color: #2b3139;
+    --fav-color: #0ecb81; /* Light green for favorites */
+}
+
+[data-theme="light"] {
+    --bg-color: #fafafa;
+    --surface-color: #ffffff;
+    --text-primary: #1e2329;
+    --text-secondary: #707a8a;
+    --border-color: #eaecef;
+}
+
+/* --- Base Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* --- Top Bar & Search --- */
+.top-bar {
+    position: sticky;
+    top: 0;
+    background-color: var(--surface-color);
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+}
+
+.search-container i {
+    color: var(--text-secondary);
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.search-container input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    outline: none;
+}
+
+#settingsBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* --- Menu Tabs --- */
+.menu-tabs {
+    display: flex;
+    gap: 20px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Crypto List --- */
+.crypto-container {
+    padding: 10px;
+    padding-bottom: 80px; /* Space for scrolling */
+}
+
+.crypto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.coin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.fav-btn.active {
+    color: var(--fav-color); /* Light Green */
+}
+
+.coin-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.coin-details p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.price-info {
+    text-align: right;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.change {
+    font-size: 13px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.change.up { background-color: var(--green-up); }
+.change.down { background-color: var(--red-down); }
+
+/* --- Premium Settings Modal --- */
+.settings-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.settings-content {
+    background-color: var(--surface-color);
+    width: 100%;
+    padding: 25px 20px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-modal.active .settings-content {
+    transform: translateY(0);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.settings-header button {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.setting-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.setting-label i {
+    font-size: 22px;
+    color: var(--text-secondary);
+}
+
+.settings-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 10px 0;
+}
+
+/* --- Premium Custom Toggle Switches --- */
+.custom-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.custom-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--border-color);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-secondary);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.custom-toggle input:checked + .toggle-slider {
+    background-color: var(--accent-color);
+}
+
+.custom-toggle input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+    background-color: #000; /* High contrast inner circle */
+}
+
+/* --- Google Sign-In Button --- */
+.google-btn {
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 15px 0;
+}
+
+.google-btn i {
+    font-size: 24px;
+    color: #ea4335; /* Google Brand Red */
+}
+
+/* --- Rate App Section --- */
+.rate-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    cursor: pointer;
+}
+
+.stars i {
+    color: var(--accent-color); /* Binance Yellow Stars */
+    font-size: 18px;
+}
+
+/* --- App Version --- */
+.app-version {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 25px;
+    padding-bottom: 15px;
+}
+
+
+
+
+/* --- Settings Modal --- 
+.settings-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.settings-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.settings-content {
+    background-color: var(--surface-color);
+    width: 100%;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings-header button {
+    background: transparent;
+    border: none;
+    color: var(--text
+*/
